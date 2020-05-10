@@ -1,1 +1,1 @@
-# -Wemos-D1-Mini-ESP8266-Remote-Hardware-Monitor
+# Wi-Fi-Hardware-Monitor
