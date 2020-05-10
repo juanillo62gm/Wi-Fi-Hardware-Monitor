@@ -11,8 +11,8 @@
 #include <Adafruit_SSD1306.h>
 
 // WiFi Parameters
-const char* ssid = "J y M Devolo";
-const char* password = "JRJM09121405";
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
 
 // Screen
 Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire);
