@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "*.svelte": "html",
-        "typeinfo": "cpp"
-    }
-}
