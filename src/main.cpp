@@ -13,7 +13,10 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-// You need to add your personal data to secrets.h
+// You need to add the followind data to secrets.h
+// const char *ssid = "YOUR_SSID";
+// const char *password = "YOUR_PASSWORD";
+// const char *url = "YOUR_OPENHARDWAREMONITOR_SERVER_URL";
 #include "secrets.h"
 
 // Screen
