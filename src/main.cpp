@@ -32,16 +32,21 @@ void setup()
   {
     // Console Log
     Serial.println("Connecting to Wi-Fi");
-
+    delay(1000);
     // Display Network Status
     display.clearDisplay();
     display.setTextColor(SSD1306_WHITE);
+    display.setCursor(0, 0);
     display.setTextSize(1);
+    display.println("Hardware Monitor");
+    display.setCursor(0, 12);
+    display.println("By Juanillo62gm");
     display.setCursor(0, 56);
     display.println("Connecting to Wi-Fi");
-    display.display(); // actually display all of the above
-  }
 
+    // Actually display all of the above
+    display.display();
+  }
 }
 
 void loop()
@@ -145,7 +150,7 @@ void loop()
     display.setCursor(0, 56);
     display.println("Free RAM " + freeRAM);
 
-    display.display(); // actually display all of the above
+    display.display();
 
     // Disconnect
     http.end();
