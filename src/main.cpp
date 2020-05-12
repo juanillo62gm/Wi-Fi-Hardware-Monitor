@@ -26,17 +26,20 @@ void setup()
 {
   Serial.begin(9600);
   WiFi.begin(ssid, password);
-
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-  display.display();
-  delay(1000);
-  display.clearDisplay();
-  display.display();
 
   while (WiFi.status() != WL_CONNECTED)
   {
-    delay(1000);
-    Serial.println("\nConnecting...");
+    // Console Log
+    Serial.println("Connecting to Wi-Fi");
+
+    // Display Network Status
+    display.clearDisplay();
+    display.setTextColor(SSD1306_WHITE);
+    display.setTextSize(1);
+    display.setCursor(0, 56);
+    display.println("Connecting to Wi-Fi");
+    display.display(); // actually display all of the above
   }
 
 }
@@ -71,6 +74,7 @@ void loop()
     String degree = degree.substring(degree.length()) + (char)247 + "C";
     String percentage = percentage.substring(percentage.length()) + (char)37;
 
+    // Console Log
     Serial.print("\n\n\n\nCPU: ");
     Serial.println(cpuName);
     Serial.print("CPU Package: ");

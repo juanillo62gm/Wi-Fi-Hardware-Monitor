@@ -1,4 +1,4 @@
-# ESP8266 Wi-Fi Hardware Monitor
+# Wi-Fi Hardware Monitor using Wemos D1 R1 Mini (ESP8266) 
 
 ## Instructions (Soon)
 
