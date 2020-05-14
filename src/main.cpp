@@ -33,9 +33,6 @@ void setup()
 
   while (WiFi.status() != WL_CONNECTED)
   {
-    // Console Log
-    Serial.println("Connecting to Wi-Fi");
-    delay(1000);
     // Display Network Status
     display.clearDisplay();
     display.setTextColor(SSD1306_WHITE);
