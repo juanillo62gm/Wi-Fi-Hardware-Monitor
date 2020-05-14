@@ -24,9 +24,12 @@ Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire);
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   WiFi.begin(ssid, password);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+
+  display.clearDisplay();
+  display.display();
 
   while (WiFi.status() != WL_CONNECTED)
   {
