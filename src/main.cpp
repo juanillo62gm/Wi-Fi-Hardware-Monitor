@@ -20,10 +20,13 @@
 // const char *hostname = "Hardware Monitor";
 #include "secrets.h"
 
-// Update over Wi-Fi
+// Update over Wi-Fi Libraries
 #include <ESP8266mDNS.h>
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
+
+// Webserver Libraries
+#include <ESP8266WebServer.h>
 
 // Screen
 Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire);
@@ -31,7 +34,6 @@ Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire);
 void setup()
 {
   Serial.begin(115200);
-  WiFi.mode(WIFI_STA);
   WiFi.hostname(hostname);
   WiFi.begin(ssid, password);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
@@ -96,10 +98,9 @@ void setup()
 
 void loop()
 {
-
   // Update over Wi-Fi
   ArduinoOTA.handle();
-
+  
   // Check WiFi Status
   if (WiFi.status() == WL_CONNECTED)
   {
