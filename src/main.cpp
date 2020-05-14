@@ -17,7 +17,13 @@
 // const char *ssid = "YOUR_SSID";
 // const char *password = "YOUR_PASSWORD";
 // const char *url = "YOUR_OPENHARDWAREMONITOR_SERVER_URL";
+// const char *hostname = "Hardware Monitor";
 #include "secrets.h"
+
+// Update over Wi-Fi
+#include <ESP8266mDNS.h>
+#include <WiFiUdp.h>
+#include <ArduinoOTA.h>
 
 // Screen
 Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire);
@@ -25,6 +31,8 @@ Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire);
 void setup()
 {
   Serial.begin(115200);
+  WiFi.mode(WIFI_STA);
+  WiFi.hostname(hostname);
   WiFi.begin(ssid, password);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
 
@@ -47,10 +55,51 @@ void setup()
     // Actually display all of the above
     display.display();
   }
+
+  // Update over Wi-Fi
+  ArduinoOTA.onStart([]() {
+    String type;
+    if (ArduinoOTA.getCommand() == U_FLASH) {
+      type = "sketch";
+    } else { // U_FS
+      type = "filesystem";
+    }
+
+    // NOTE: if updating FS this would be the place to unmount FS using FS.end()
+    Serial.println("Start updating " + type);
+  });
+  ArduinoOTA.onEnd([]() {
+    Serial.println("\nEnd");
+  });
+  ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
+    Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
+  });
+  ArduinoOTA.onError([](ota_error_t error) {
+    Serial.printf("Error[%u]: ", error);
+    if (error == OTA_AUTH_ERROR) {
+      Serial.println("Auth Failed");
+    } else if (error == OTA_BEGIN_ERROR) {
+      Serial.println("Begin Failed");
+    } else if (error == OTA_CONNECT_ERROR) {
+      Serial.println("Connect Failed");
+    } else if (error == OTA_RECEIVE_ERROR) {
+      Serial.println("Receive Failed");
+    } else if (error == OTA_END_ERROR) {
+      Serial.println("End Failed");
+    }
+  });
+  ArduinoOTA.begin();
+  Serial.println("Ready");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
 }
 
 void loop()
 {
+
+  // Update over Wi-Fi
+  ArduinoOTA.handle();
+
   // Check WiFi Status
   if (WiFi.status() == WL_CONNECTED)
   {
