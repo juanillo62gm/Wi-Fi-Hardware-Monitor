@@ -31,6 +31,9 @@ cache:
     directories:
         - "~/.platformio"
 
+env:
+    - PLATFORMIO_CI_SRC=include/secrets.h
+
 install:
     - pip install -U platformio
     - platformio update
