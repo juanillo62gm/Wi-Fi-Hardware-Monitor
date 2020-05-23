@@ -36,6 +36,9 @@ install:
     - pip install -U platformio
     - platformio update
     - platformio lib install ArduinoJson
+    - platformio lib install Adafruit_GFX
+    - platformio lib install Adafruit_SSD1306
+    
 
 script:
     - platformio run
