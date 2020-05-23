@@ -35,6 +35,7 @@ cache:
 install:
     - pip install -U platformio
     - platformio update
+    - platformio lib update
 
 script:
     - platformio run
