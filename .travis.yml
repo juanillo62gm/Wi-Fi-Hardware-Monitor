@@ -27,7 +27,6 @@ language: python
 python:
     - "3.8.3"
 
-sudo: false
 cache:
     directories:
         - "~/.platformio"
@@ -35,9 +34,9 @@ cache:
 install:
     - pip install -U platformio
     - platformio update
-    - platformio lib install ArduinoJson
-    - platformio lib install Adafruit_GFX
-    
+    - platformio lib install "ArduinoJson"
+    - platformio lib install "Adafruit GFX Library"
+    - platformio lib install "Adafruit SSD1306"
 
 script:
     - platformio run
