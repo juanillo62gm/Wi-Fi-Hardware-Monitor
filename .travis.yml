@@ -40,6 +40,7 @@ install:
     - platformio lib install "ArduinoJson"
     - platformio lib install "Adafruit GFX Library"
     - platformio lib install "Adafruit SSD1306"
+    - platformio lib install "Adafruit ST7735 and ST7789 Library"
 
 script:
     - platformio run
