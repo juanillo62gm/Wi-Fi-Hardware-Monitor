@@ -376,7 +376,7 @@ void loop()
     // Enable Wi-Fi Hardware Monitor with SSD1306 screen
     // hardwareMonitorSSD1306();
     // Enable Wi-Fi Hardware Monitor with ST7735 screen
-    hardwareMonitorST7735();
+    // hardwareMonitorST7735();
   }
 
   delay(1000);
