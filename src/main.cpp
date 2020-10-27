@@ -13,6 +13,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_ST7735.h> // Adafruit ST7735 and ST7789
+#include <Adafruit_I2CDevice.h>
 
 // You need to add the followind data to inside /include/secrets.h
 // const char *ssid = "YOUR_SSID";

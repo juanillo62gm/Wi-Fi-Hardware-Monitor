@@ -3,12 +3,14 @@
 # Wi-Fi Hardware Monitor using Wemos D1 R1 Mini (ESP8266) 
 
 ## Gallery
+### 3D Printed (SSD1306 Screen)
 [![Wi-Fi Hardware Monitor](https://juanillo62gm.com/assets/images/13-wifihardwaremonitor/00-wifihm.jpg)](https://juanillo62gm.com/projects/wifi-hardware-monitor/)
 
+### ST7735 and SSD1306 Screens
 [![Wi-Fi Hardware Monitor](https://juanillo62gm.com/assets/images/13-wifihardwaremonitor/01-wifihm.jpg)](https://juanillo62gm.com/projects/wifi-hardware-monitor/)
 
 ## Instructions and more images
-[Juanillo62gm](https://juanillo62gm.com/projects/wifi-hardware-monitor/)
+[Juanillo62gm Website](https://juanillo62gm.com/projects/wifi-hardware-monitor/)
 
 ## Inspired by
 ### Hardware Monitor by ModBros
